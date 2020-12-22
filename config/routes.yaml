@@ -1,0 +1,29 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+
+homepage:
+  path: /
+  controller: App\Controller\IndexController::home
+
+readPost:
+  path: /readPost/{id}
+  controller: App\Controller\IndexController::readPost
+
+newPost:
+  path: /newPost
+  controller: App\Controller\IndexController::newPostPage
+
+sendPost:
+  path: /sendPost
+  controller: App\Controller\IndexController::sendPost
+
+sendComment:
+  path: /sendComment
+  controller: App\Controller\IndexController::sendComment
+
+default:
+  path: /{req}
+  controller: App\Controller\IndexController::home
+  requirements:
+    requ: ".+"

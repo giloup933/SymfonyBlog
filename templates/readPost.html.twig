@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+    <div id="app">
+        <h1>{{ title }}</h1>
+        <h4>{{ body }}</h4>
+        <h6>Posted by <a href="/userProfile?userID={{ userid }}"> {{ username }}</a> at {{ time }}</h6>
+        <div id="newComment">
+            <form action="/sendComment" method="post">
+                <input type="hidden" name="postid" value="{{ id }}">
+                <label class="label">Title:</label>
+                <div class="control">
+                    <input class="input" type="text" name="title">
+                </div>
+                <label class="label">Content:</label>
+                <div class="control">
+                    <input class="input" type="text" name="body">
+                </div>
+                <div>
+                    <input type="submit" value="Send post!">
+                </div>
+
+            </form>
+        </div>
+
+        <div id="comments">
+            <ul id="commentList">
+                {% for comment in comments %}
+                    <li>
+                        <h4>{{ comment.title }}</h4>
+                        <h5>{{ comment.body }}</h5>
+                        <h5>Please remember that you want to only make the comment content show if the title is clicked! </h5>
+
+                        <h6>Posted by <a href="/userProfile?userID={{ comment.userid }}"> {{ comment.username }}</a> at {{ comment.time }}</h6>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.min.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+            }
+        })
+    </script>
+</body>
+</html>

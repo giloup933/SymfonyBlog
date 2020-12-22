@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>New Post</title>
+</head>
+<body>
+    <div id="app">
+        <div class="newPostForm">
+            <form action="/sendPost" method="post">
+                <label class="label">Title:</label>
+                <div class="control">
+                    <input v-model="form.title" class="input" type="text" name="title">
+                </div>
+                <label class="label">Content:</label>
+                <div class="control">
+                    <input v-model="form.body" class="input" type="text" name="body">
+                </div>
+                <div>
+                    <input type="submit" value="Send post!">
+                </div>
+            </form>
+        </div>
+    </div>
+    {% verbatim %}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.min.js"></script>
+        <script>
+            new Vue({
+                el: '#app',
+                data: {
+                    form: {
+                        title: 'Announcement',
+                        body: 'Do not touch the food until 5PM! It is for the party.'
+                    }
+                }
+            })
+        </script>
+    {% endverbatim %}
+</body>
+</html>
